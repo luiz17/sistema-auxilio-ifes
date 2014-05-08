@@ -6,7 +6,8 @@ class Curso {
     private $nome;
     private $periodo;
     
-    function __construct($curso_id, $nome, $periodo) {
+  
+    function __construct($nome, $periodo) {
         $this->curso_id = $curso_id;
         $this->nome = $nome;
         $this->periodo = $periodo;
