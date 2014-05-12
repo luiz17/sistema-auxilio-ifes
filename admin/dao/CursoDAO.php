@@ -19,24 +19,30 @@ class CursoDAO {
         
     }
     
-    public function inserir(Curso $curso) {
+    public function insert(Curso $curso) {
         
 //        $sql = "insert into Curso (nome, periodo)values(".$curso->getNome.", ".$curso->getPeriodo.")";
 //        mysql_query($sql);
     }
     
-    public function alterar (Curso $nCurso) {
+    public function update (Curso $nCurso) {
 //        $sql = "update Curso set nome = ".$ncurso->getNome.", periodo = ".$ncurso->getPeriodo.") where curso.idCurso = ".$ncurso->getCurso_id;
 //        mysql_query($sql);
     }
     
-    public function excluir(Curso $curso) {
+    public function delete(Curso $curso) {
         
         
     }
     
-    public function pesquisar($nomePesq) {
+    public function consult($pesqConsulta) {
         
         
     }
+    
+    public function disable(urso $curso) {
+        
+        
+    }
+    
 }

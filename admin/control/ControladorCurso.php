@@ -1,30 +1,39 @@
 <?php
 require_once ('autoload.php'); 
-use 'DAO\CursoDAO.php';
-use 'Model\Curso.php';
+use DAO\CursoDAO;
+use Model\Curso;
 
 class ControladorCurso {
+    private $cursodao = null;
+    
     function __construct() {
+        $this->cursodao = new CursoDAO();        
     }   
     
-    public function inserirCurso($nome, $periodo) {
+    public function insertCurso($nome, $periodo) {
         $curso = new Curso($nome, $periodo);
-        $cursodao = new CursoDAO();
-        $cursodao->inserir($curso);
+        $cursodao->insert($curso);
     }
     
-    public function AlterarCurso($id, $nome, $periodo) {
+    public function updateCurso($id, $nome, $periodo) {
         $curso = new Curso($nome, $periodo);
         $curso->setCurso_id($id);
-        
-        $cursodao = new CursoDAO();
-        $cursodao->alterar($curso);
+        $cursodao->update($curso);
     }
     
-    public function excluirCurso() {
+    public function deleteCurso($id, $nome, $periodo) {
+        $curso = new Curso($nome, $periodo);
+        $cursodao->delete($curso);
     }
     
-    public function consultarCurso() {
-        
+    public function consultCurso($pesqConsulta) {
+       
+        $listCurso = $cursodao->consult($pesqConsulta);
+        return $listCurso;
+    }
+    
+    public function disableCurso($id, $nome, $periodo) {
+        $curso = new Curso($nome, $periodo);
+        $cursodao->disable($curso);
     }
 }
