@@ -27,12 +27,11 @@ class ControladorCurso {
     }
     
     public function consultCurso($pesqConsulta) {
-       
         $listCurso = $cursodao->consult($pesqConsulta);
         return $listCurso;
     }
     
-    public function disableCurso($id, $nome, $periodo) {
+    public function disableCurso($id, $nome, $periodo) { //inativarCurso
         $curso = new Curso($nome, $periodo);
         $cursodao->disable($curso);
     }

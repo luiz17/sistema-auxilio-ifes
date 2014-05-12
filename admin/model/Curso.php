@@ -1,5 +1,5 @@
 <?php
-
+namespace Model;
 class Curso {
 
     private $curso_id;
