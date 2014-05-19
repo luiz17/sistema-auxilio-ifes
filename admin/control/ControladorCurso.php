@@ -10,29 +10,29 @@ class ControladorCurso {
         $this->cursodao = new CursoDAO();        
     }   
     
-    public function insertCurso($nome, $periodo) {
-        $curso = new Curso($nome, $periodo);
-        $cursodao->insert($curso);
+    public function insertCurso($nome, $periodo, $status) {
+        $curso = new Curso($nome, $periodo, $status);
+        $this->cursodao->insert($curso);
     }
     
-    public function updateCurso($id, $nome, $periodo) {
-        $curso = new Curso($nome, $periodo);
+    public function updateCurso($id, $nome, $periodo, $status) {
+        $curso = new Curso($nome, $periodo, $status);
         $curso->setCurso_id($id);
-        $cursodao->update($curso);
+        $this->cursodao->update($curso);
     }
     
-    public function deleteCurso($id, $nome, $periodo) {
-        $curso = new Curso($nome, $periodo);
-        $cursodao->delete($curso);
+    public function deleteCurso($id, $nome, $periodo, $status) {
+        $curso = new Curso($id, $nome, $periodo, $status);
+        $this->cursodao->delete($curso);
     }
     
     public function consultCurso($pesqConsulta) {
-        $listCurso = $cursodao->consult($pesqConsulta);
+        $listCurso = $this->cursodao->consult($pesqConsulta);
         return $listCurso;
     }
     
-    public function disableCurso($id, $nome, $periodo) { //inativarCurso
-        $curso = new Curso($nome, $periodo);
-        $cursodao->disable($curso);
+    public function disableCurso($id, $nome, $periodo, $status) { //inativarCurso
+        $curso = new Curso($id, $nome, $periodo, $status);
+        $this->cursodao->disable($curso);
     }
 }

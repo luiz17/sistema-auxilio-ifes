@@ -1,7 +1,7 @@
 <?php
 namespace DAO;
 require_once ('autoload.php'); 
-use 'Model\Curso.php';
+use Model\Curso;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,11 +26,13 @@ class CursoDAO {
      * @param Curso $curso Objeto do tipo curso 
      */     
     public function insert(Curso $curso) {
+        
         try { 
-            $stmt = $pdo->prepare("INSERT Curso (nome, periodo) VALUES (:nome, :periodo)");
-            $stmt->bindParam(':nome', $curso->getNome);
-            $stmt->bindParam(':periodo', $curso->getPeriodo);
-           
+            $con = new DBConnect();
+            $stmt = $con->prepare("INSERT into Curso (nome, periodo, status) VALUES (:nome, :periodo, :status)");
+            $stmt->bindParam(':nome', $curso->getNome());
+            $stmt->bindParam(':periodo', $curso->getPeriodo());
+            $stmt->bindParam(':status', $curso->getStatus());
             $stmt->execute(); 
         
         } catch (Exception $e) { 
@@ -47,6 +49,18 @@ class CursoDAO {
      * @param Curso $nCurso Objeto do tipo curso 
      */
     public function update (Curso $nCurso) {
+        try { 
+            $con = new DBConnect();
+            $stmt = $con->prepare("UPDATE Curso SET(nome = :nome, periodo = :periodo, status = :status) where curso.id = :id");
+            $stmt->bindParam(':nome', $nCurso->getNome());
+            $stmt->bindParam(':periodo', $nCurso->getPeriodo());
+            $stmt->bindParam(':id', $nCurso->getCurso_id());
+            $stmt->bindParam(':status', $nCurso->getStatus());
+            $stmt->execute(); 
+        } catch (Exception $e) { 
+            print "Ocorreu um erro ao tentar alterar o curso."; 
+            GeraLog::getInstance()->inserirLog(" Erro: Código: " . $e->getCode() . " Mensagem: " . $e->getMessage());  
+        }
     }
     
     
@@ -56,8 +70,19 @@ class CursoDAO {
      * @param Curso $curso Objeto do tipo curso 
      */
     public function delete(Curso $curso) {
+        try { 
+            $con = new DBConnect();
+            $stmt = $con->prepare("DELETE FROM Curso where curso.id = :id");
+            $stmt->bindParam(':id', $curso->getCurso_id());
+            
+           
+            $stmt->execute(); 
         
-        
+        } catch (Exception $e) { 
+            print "Ocorreu um erro ao tentar deletar curso."; 
+            GeraLog::getInstance()->inserirLog(" Erro: Código: " . $e->getCode() . " Mensagem: " . $e->getMessage()); 
+            
+        }
     }
     
     /**
@@ -67,8 +92,18 @@ class CursoDAO {
      * @param String $pesqConsulta Nome do Curso 
      */
     public function consult($pesqConsulta) {
+        try { 
+            $con = new DBConnect();
+            $stmt = $con->prepare("SELECT * FROM Curso where CURSO.nome = :nome");
+            $stmt->bindParam(':nome', $pesqConsulta);
+           
+            $stmt->execute(); 
         
-        return null;
+        } catch (Exception $e) { 
+            print "Ocorreu um erro ao tentar consultar o curso."; 
+            GeraLog::getInstance()->inserirLog(" Erro: Código: " . $e->getCode() . " Mensagem: " . $e->getMessage()); 
+            
+        }
     }
     
     /**
