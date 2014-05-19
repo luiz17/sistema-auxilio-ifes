@@ -18,28 +18,32 @@ Class Fields {
 
         if( is_array($args) ):
             
-            echo '<form action"'.$action.'" method="'.$method.'">';
+            echo '<form action="'.$action.'" method="'.$method.'">';
             
             foreach($args as $field):
 
                 switch ( $field['type'] ) {
                     case 'text':
                         echo '<div><label>'.$field['name'].'<label></div>';
-                        echo '<div><input type="text" name="'.$field['name'].'"></div>';
+                        echo '<div><input type="text" name="'.$field['id'].'"></div>';
                     break;
                 
                     case 'password':
                         echo '<div><label>'.$field['name'].'<label></div>';
-                        echo '<div><input type="password" name="'.$field['name'].'"></div>';
+                        echo '<div><input type="password" name="'.$field['id'].'"></div>';
                     break;
                 
                     case 'submit':
-                        echo '<div><input type="submit" name="'.$field['name'].'" value="'.$field['name'].'"></div>';
+                        echo '<div><input type="submit" name="'.$field['id'].'" value="'.$field['name'].'"></div>';
                     break;
                     
                     case 'textarea':
                         echo '<div><label>'.$field['name'].'<label></div>';
-                        echo '<div><textarea name="'.$field['name'].'"></textarea>';
+                        echo '<div><textarea name="'.$field['id'].'"></textarea>';
+                    break;
+                
+                    case 'hidden':
+                        echo '<input type="hidden" name="'.$field['id'].'" value="'.$field['value'].'">';
                     break;
                 } // end switch
             

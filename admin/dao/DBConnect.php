@@ -1,19 +1,22 @@
 <?php
 
-	Class DBConnect {
+namespace Dao;
 
-		public static function openConnect() {
+Class DBConnect {
 
-			try{
-			    // Faz conexão com banco de daddos
-			    $pdo = new PDO("mysql:host=127.0.0.1;dbname=sistema_auxilio;", "root", "");
+    private $dbh;
 
-			} catch(PDOException $e){
-			    // Caso ocorra algum erro na conexão com o banco, exibe a mensagem
-			    echo 'Falha ao conectar no banco de dados: '.$e->getMessage();
-			    die;
-			}
-		}
-	}
+    function __construct() {
+        try {
+            // Faz conexão com banco de daddos
+            $this->dbh = new PDO("mysql:host=127.0.0.1;dbname=sistema_auxilio;", "root", "");
+            return $this->dbh;
+        } catch (PDOException $e) {
+            // Caso ocorra algum erro na conexão com o banco, exibe a mensagem
+            echo 'Falha ao conectar no banco de dados: ' . $e->getMessage();
+            die;
+        }
+    }
+}
 
 ?>
