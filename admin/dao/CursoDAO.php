@@ -1,7 +1,8 @@
-<?php
+﻿<?php
 namespace DAO;
 require_once ('autoload.php'); 
 use Model\Curso;
+use Dao\DBConnect;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -33,7 +34,7 @@ class CursoDAO {
             $stmt->bindParam(':nome', $curso->getNome());
             $stmt->bindParam(':periodo', $curso->getPeriodo());
             $stmt->bindParam(':status', $curso->getStatus());
-            $stmt->execute(); 
+            $stmt->execute();
         
         } catch (Exception $e) { 
             print "Ocorreu um erro ao tentar inserir o curso."; 
