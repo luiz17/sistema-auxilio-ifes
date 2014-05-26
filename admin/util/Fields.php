@@ -3,7 +3,7 @@
  * Classe geradora de campos automáticos.
  */
 
-namespace Model;
+namespace Util;
 
 Class Fields {
 

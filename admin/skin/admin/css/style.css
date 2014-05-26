@@ -315,6 +315,10 @@ h6, .title-6 {
   vertical-align: middle;
   height: 30px;
   max-height: 30px;
+  color: #fff;
+}
+.logo:hover {
+  color: #fff;
 }
 .logo .logo-img {
   width: 30px;
