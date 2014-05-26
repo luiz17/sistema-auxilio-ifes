@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .sass-cache/**/*
 node_modules/**/* 
 node_modules/
@@ -19,19 +18,4 @@ Thumbs.db
 
 # Logs #
 ########
-=======
-# generated files #
-######################
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-*.bak
-
-# Logs #
-########
->>>>>>> e13d6be732fa47a03b128efe1ae386fbafb333fc
 *.log

@@ -1,19 +1,16 @@
 <?php
-namespace Model;
+
 class Curso {
 
     private $curso_id;
     private $nome;
     private $periodo;
-    private $status;
     
-  
-    function __construct($nome, $periodo, $status) {
+    function __construct($curso_id, $nome, $periodo) {
+        $this->curso_id = $curso_id;
         $this->nome = $nome;
         $this->periodo = $periodo;
-        $this->status = $status;
     }
-
     
     public function getCurso_id() {
         return $this->curso_id;
@@ -37,14 +34,6 @@ class Curso {
 
     public function setPeriodo($periodo) {
         $this->periodo = $periodo;
-    }
-
-    public function getStatus() {
-        return $this->status;
-    }
-
-    public function setStatus($status) {
-        $this->status = $status;
     }
 
 
