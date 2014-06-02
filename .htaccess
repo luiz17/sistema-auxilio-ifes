@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Extensões .php
+	RewriteEngine on 
+	RewriteCond %{REQUEST_FILENAME} !-d 
+	RewriteCond %{REQUEST_FILENAME}\.php -f 
+	RewriteRule ^(.*)$ $1.php
+
+	# Página do aluno
+	RewriteRule ^admin/aluno/?$ admin/index.php?page=aluno [NC,L]
+
+	# Página dgerenciar aluno
+	RewriteRule ^admin/alunos/?$ admin/index.php?page=gerenciar-alunos [NC,L]
+
+</IfModule>

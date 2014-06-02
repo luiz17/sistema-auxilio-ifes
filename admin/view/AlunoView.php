@@ -1,12 +1,6 @@
 <?php require_once 'gui/header.php'; 
 
-    $args = array();
-                    
-    $args[] = array(
-        'name' => 'Nome',
-        'id' => 'nome',
-        'type' => 'text'
-    );
+    $args = unserialize(ALUNO_FIELDS);
 
     $args[] = array(
         'name' => 'Cadastrar',

@@ -470,6 +470,7 @@ h6, .title-6 {
   height: auto;
   max-height: none;
   display: inline-block;
+  color: #3a3939;
 }
 .footer-main .logo-wrapper .logo .info {
   display: inline-block;
