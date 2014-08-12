@@ -1,4 +1,5 @@
-<IfModule mod_rewrite.c>
+﻿<IfModule mod_rewrite.c>
+
 	RewriteEngine On
 
 	# Extensões .php
@@ -7,10 +8,16 @@
 	RewriteCond %{REQUEST_FILENAME}\.php -f 
 	RewriteRule ^(.*)$ $1.php
 
+	# Página de administração
+	#RewriteRule ^admin/$ index.php?page=admin [NC,L]
+
 	# Página do aluno
-	RewriteRule ^admin/aluno/?$ admin/index.php?page=aluno [NC,L]
+	RewriteRule ^admin/aluno/?$ admin/module/Aluno/aluno.php [NC,L]
 
 	# Página dgerenciar aluno
-	RewriteRule ^admin/alunos/?$ admin/index.php?page=gerenciar-alunos [NC,L]
+	#RewriteRule ^admin/alunos/?$ index.php/admin?page=gerenciar-alunos [NC,L]
+
+	# Página de contato
+	RewriteRule ^contato/?$ public/contato.php [NC,L]
 
 </IfModule>
