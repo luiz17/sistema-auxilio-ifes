@@ -23,6 +23,9 @@
                 }
                 
                 break;
+            case 'turma':
+                Mapping::requireModulePath('Turma');
+                break;
             
             default:
                 // 404
