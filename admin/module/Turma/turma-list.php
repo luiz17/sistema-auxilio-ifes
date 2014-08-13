@@ -46,7 +46,7 @@ $lista_turmas = $core->getAll('TB_TURMA');
                 <td><?= $turma['turma_id'] ?></td>
                 <td><?= $turma['nome'] ?></td>
                 <td><?= $turma['ano'] ?></td>
-                <td><?= $turma['curso'] ?></td>
+                <td><?= $turma['curso_id'] ?></td>
                 <td>
                     <a href="<?= Mapping::getModuleURL('Turma', 'index', array('action'=>'editar' ,'id'=>$turma['turma_id']) ) ?>">Editar</a>
                     <a href="<?= Mapping::getModuleURL('Turma', 'process', array('action'=>'deletar' ,'id'=>$turma['turma_id']) ) ?>">Excluir</a>
