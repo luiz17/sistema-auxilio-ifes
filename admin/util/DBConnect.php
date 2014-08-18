@@ -65,7 +65,8 @@ class DBConnect {
     private static $tabelas = array(
 		'TB_ALUNO'  => 'aluno',
 		'TB_CURSO'  => 'curso',
-		'TB_ACESSO' => 'acesso'
+		'TB_ACESSO' => 'acesso',
+        'TB_TURMA'  => 'turma'
 	);   
     
     /**

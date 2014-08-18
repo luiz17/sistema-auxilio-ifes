@@ -128,5 +128,27 @@ $args = array();
     );
 define ("ALUNO_FIELDS", serialize ( $args ));
 
+
+$args = array();
+                    
+    $args[] = array(
+        'name' => 'Nome',
+        'id' => 'nome',
+        'type' => 'text'
+    );
+    $args[] = array(
+        'name' => 'Ano',
+        'id' => 'ano',
+        'type' => 'text'
+    );
+    $args[] = array(
+        'name' => 'Curso ID',
+        'id' => 'curso_id',
+        'type' => 'text'
+    );
+
+define ("TURMA_FIELDS", serialize ( $args ));
+
+
 // Start mapping
 require_once __ROOT__.'/admin/util/mapping.php';
