@@ -17,3 +17,5 @@
         'id' => 'curso_id',
         'type' => 'text'
     );
+
+    return $args;
