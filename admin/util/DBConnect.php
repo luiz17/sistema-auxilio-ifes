@@ -66,7 +66,8 @@ class DBConnect {
 		'TB_ALUNO'  => 'aluno',
 		'TB_CURSO'  => 'curso',
 		'TB_ACESSO' => 'acesso',
-        'TB_TURMA'  => 'turma'
+        'TB_TURMA'  => 'turma',
+        'TB_AUXILIO'  => 'auxilio'
 	);   
     
     /**

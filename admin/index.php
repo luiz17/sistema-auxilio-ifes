@@ -18,6 +18,9 @@
             case 'curso':
                 Mapping::requireModulePath('Curso');
                 break;
+            case 'auxilio':
+                Mapping::requireModulePath('Auxilio');
+                break;
             
             default:
                 // 404
