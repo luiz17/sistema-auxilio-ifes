@@ -12,17 +12,6 @@
             case 'aluno':
                 Mapping::requireModulePath('Aluno');
                 break;
-            case 'editar':
-
-                // Verifica o ID
-                if( !empty($_GET['id']) ) {
-                    $id = $_GET['id'];
-                    Mapping::requireModulePath('Aluno', 'editar');
-                } else {
-                    Mapping::requireModulePath('Aluno');
-                }
-                
-                break;
             case 'turma':
                 Mapping::requireModulePath('Turma');
                 break;

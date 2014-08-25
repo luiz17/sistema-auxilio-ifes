@@ -7,26 +7,26 @@
 
 		switch ($user_action) {
 			case 'cadastrar':
-				require_once 'turma-cadastrar.php';
+				Mapping::requireModulePath('Aluno', 'cadastrar');
 				break;
 			case 'editar':
 
 				// Verifica o ID
 				if( !empty($_GET['id']) ) {
-                    Mapping::requireModulePath('Turma', 'editar');
+                    Mapping::requireModulePath('Aluno', 'editar');
 				} else {
-                    Mapping::requireModulePath('Turma', 'list');
+                    Mapping::requireModulePath('Aluno', 'list');
 				}
 				
 				break;
 			
 			default:
-				Mapping::requireModulePath('Turma', 'list');
+				Mapping::requireModulePath('Aluno', 'list');
 				break;
 		}
 
 	} else {
 
-		Mapping::requireModulePath('Turma', 'list');
+		Mapping::requireModulePath('Aluno', 'list');
 
 	}

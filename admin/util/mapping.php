@@ -9,11 +9,11 @@ Class Mapping {
 	 */
 	public static function requireModulePath($module_name, $option = null) {
 
-		if($option != null) {
-			$option = '-'.$option;
+		if($option == null) {
+			$option = 'main';
 		}
 
-		require __MODULE_PATH__.'/'.$module_name.'/'.strtolower($module_name).$option.'.php';
+		require __MODULE_PATH__.'/'.$module_name.'/'.$option.'.php';
 	
 	}
 
@@ -43,7 +43,7 @@ Class Mapping {
 		// Opção do módulo
 		if($option != null) {
 
-			if($option == "index") {
+			if($option == "main" || $option == "index") {
 
 				if($param != null) {
 
@@ -54,12 +54,13 @@ Class Mapping {
 
 				return __ADMIN__.'?page='.strtolower($module_name).$param;
 
-			} else {
-				$option = '-'.$option;
 			}
+
+		} else {
+			$option = 'main';
 		}
 		
-		$url = __ADMIN__.'/module/'.$module_name.'/'.strtolower($module_name).$option.'.php'.$param;
+		$url = __ADMIN__.'/module/'.$module_name.'/'.$option.'.php'.$param;
 
 		return $url;
 	}
